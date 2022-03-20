@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Gestion des processus et des ressources - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p:last-child{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p:last-child,.markdown-body .alert>ul:last-child{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><p><span class="toc"><ul>
+<li><a href="#Gestion-des-processus-et-des-ressources" title="Gestion des processus et des ressources">Gestion des processus et des ressources</a><ul>
+<li><a href="#1--Les-Systèmes-d’exploitation-ou-Operating-System" title="1- Les Systèmes d’exploitation (ou Operating System)">1- Les Systèmes d’exploitation (ou Operating System)</a><ul>
+<li><a href="#1--Définition" title="1- Définition">1- Définition</a></li>
+<li><a href="#2--Principaux-types-de-systèmes-d’exploitation" title="2- Principaux types de systèmes d’exploitation">2- Principaux types de systèmes d’exploitation</a></li>
+</ul>
+</li>
+<li><a href="#2--Les-processus" title="2- Les processus">2- Les processus</a><ul>
+<li><a href="#Exercice" title="Exercice">Exercice</a></li>
+<li><a href="#1--Processus-et-ordonnancement" title="1- Processus et ordonnancement">1- Processus et ordonnancement</a></li>
+</ul>
+</li>
+<li><a href="#3--Processus-état-et-fonctionnement" title="3- Processus: état et fonctionnement">3- Processus: état et fonctionnement</a><ul>
+<li><a href="#1--Petite-expérience" title="1- Petite expérience">1- Petite expérience</a></li>
+<li><a href="#2--Programmation-concurrente" title="2- Programmation concurrente">2- Programmation concurrente</a></li>
+</ul>
+</li>
+<li><a href="#4--Interblocage" title="4- Interblocage">4- Interblocage</a><ul>
+<li><a href="#Exemple" title="Exemple">Exemple</a></li>
+<li><a href="#Conditions-de-Coffman" title="Conditions de Coffman">Conditions de Coffman</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</span></p><h1 id="Gestion-des-processus-et-des-ressources" data-id="Gestion-des-processus-et-des-ressources"><a class="anchor hidden-xs" href="#Gestion-des-processus-et-des-ressources" title="Gestion-des-processus-et-des-ressources"><span class="octicon octicon-link"></span></a><span>Gestion des processus et des ressources</span></h1><p><img src="https://i.imgur.com/exgSUhL.gif" alt="" loading="lazy"></p><p><strong><span>Introduction :</span></strong></p><p><span>Considérons une activité simple sur ordinateur. Je rédige le compte-rendu de mon projet de construction de rue aléatoire sur un logiciel de traitement de texte. Mon navigateur web est aussi ouvert avec divers onglets, l’un pointant vers Wikipedia, l’autre sur la documentation Turtle et un autre sur Spotify. J’ai d’ailleurs mes écouteurs branchés. Mon projet est aussi ouvert sur divers fenêtres Idle (il est écrit en Python).</span></p><p><span>Tous ces programmes s’exécutent «&nbsp;en même temps&nbsp;». Pourtant (selon les cours de première), un ordinateur ne dispose que d’un nombre limité de processeurs. Or, un programme est une suite d’instruction en langage machine, ces instructions sont exécutées une à une par le processeur. Alors comment le processeur (on imagine qu’on utilise un ordinateur mono-processeur pour simplifier), peut-il exécuter «&nbsp;en même temps&nbsp;» les instructions du navigateur web, du logiciel de traitement de texte et de Idle&nbsp;?</span><br>
+<span>Cette fonctionnalité de base (l’exécution concurrente des programmes) est permise par tous les systèmes d’exploitation modernes. On parle de système d’exploitation multitâches.</span></p><p><strong><span>Objectif de la séance&nbsp;:</span></strong></p><ul>
+<li><span>Rappel sur les systèmes d’exploitations, programmes et processus</span></li>
+<li><span>Comprendre l’exécution concurrente de processus</span></li>
+<li><span>Gestion des processus par le système d’exploitation</span></li>
+<li><span>Mettre en évidence le risque de l’interblocage (deadlock)</span></li>
+<li><span>Notions de concurrence en Python (prochaine séance)</span></li>
+</ul><h2 id="1--Les-Systèmes-d’exploitation-ou-Operating-System" data-id="1--Les-Systèmes-d’exploitation-ou-Operating-System"><a class="anchor hidden-xs" href="#1--Les-Systèmes-d’exploitation-ou-Operating-System" title="1--Les-Systèmes-d’exploitation-ou-Operating-System"><span class="octicon octicon-link"></span></a><span>1- Les Systèmes d’exploitation (ou Operating System)</span></h2><h3 id="1--Définition" data-id="1--Définition"><a class="anchor hidden-xs" href="#1--Définition" title="1--Définition"><span class="octicon octicon-link"></span></a><span>1- Définition</span></h3><p><span>Le </span><strong><span>système d’exploitation</span></strong><span>&nbsp;d’un ordinateur est chargé d’assurer les </span><strong><span>fonctionnalités</span></strong><span> de </span><strong><span>communication</span></strong><span> et d’</span><strong><span>interfaçage</span></strong><span> avec l’</span><strong><span>utilisateur</span></strong><span>. Un </span><strong><span>OS</span></strong><span> est un </span><strong><span>logiciel</span></strong><span> dont le principal domaine d’intervention est la </span><strong><span>gestion de toutes les ressources de l’ordinateur</span></strong><span> comme :</span></p><ul>
+<li><span>le chargement et le lancement des programmes&nbsp;;</span></li>
+<li><span>la gestion des processeurs, de la mémoire, des périphériques&nbsp;;</span></li>
+<li><span>la gestion des processus (programmes en cours d’exécution) et des fichiers&nbsp;;</span></li>
+<li><span>la protection contre les erreurs et la détection des erreurs&nbsp;;</span></li>
+<li><span>etc…</span></li>
+</ul><p><span>C’est donc une composante logicielle très importante.</span><br>
+<span>Dans un ordinateur, les logiciels sont divisés en deux catégories :</span></p><ul>
+<li><span>les </span><strong><span>programmes système</span></strong><span> qui font fonctionner l’ordinateur : le système d’exploitation et les utilitaires (compilateurs, éditeurs, interpréteurs de commandes, etc.)</span></li>
+<li><span>les </span><strong><span>programmes d’application</span></strong><span> qui résolvent les problèmes spécifiques des utilisateurs.</span></li>
+</ul><p><img src="https://i.imgur.com/JMPT5Vk.png" alt="" loading="lazy"></p><p><em><span>Vidéo de 3 minutes : </span><a href="https://www.youtube.com/watch?v=AcZ87MTiXr4&amp;feature=emblogo" target="_blank" rel="noopener"><span>Introduction aux Systèmes d’exploitation</span></a></em></p><p><span>Voici quelques exemples de système d’exploitation :</span></p><ul>
+<li><span>MS-DOS, Windows</span></li>
+<li><span>OS/2, Mac-OS</span></li>
+<li><span>Unix (AIX, Xenix, Ultrix, Solaris, etc.)</span></li>
+<li><span>Linux</span></li>
+<li><span>Android</span></li>
+<li><span>Mais il en existe d’autres comme Symbian développé par Nokia, Tizen par Samsung, …</span></li>
+</ul><h3 id="2--Principaux-types-de-systèmes-d’exploitation" data-id="2--Principaux-types-de-systèmes-d’exploitation"><a class="anchor hidden-xs" href="#2--Principaux-types-de-systèmes-d’exploitation" title="2--Principaux-types-de-systèmes-d’exploitation"><span class="octicon octicon-link"></span></a><span>2- Principaux types de systèmes d’exploitation</span></h3><h4 id="1--OS-«nbspmonoprogrammationnbsp»" data-id="1--OS-«nbspmonoprogrammationnbsp»"><a class="anchor hidden-xs" href="#1--OS-«nbspmonoprogrammationnbsp»" title="1--OS-«nbspmonoprogrammationnbsp»"><span class="octicon octicon-link"></span></a><span>1- OS «&nbsp;monoprogrammation&nbsp;»</span></h4><p><span>Un OS est dit de </span><strong><span>“monoprogrammation”</span></strong><span> lorsqu’un </span><strong><span>seul</span></strong><span> </span><strong><span>utilisateur</span></strong><span> est présent et a accès à toutes les ressources de la machine pendant tout le temps que dure son travail. Si cet utilisateur exécute </span><strong><span>plusieurs programmes, ils le seront les uns à la suite des autres.</span></strong></p><p><span>A titre d’exemple, supposons que sur un tel système 4 utilisateurs exécutent chacun un programme : P1, P2, P3 et P4. L’OS ne permet le passage des programmes que un à un :</span><br>
+<img src="https://i.imgur.com/xQ1dDUb.png" alt="" loading="lazy"><br>
+<em><span>Ici le programme P2 ne pourra s’exécuter que lorsque le programme P1 sera terminé, et ainsi de suite.</span></em></p><p><strong><span>Rmq</span></strong><span>&nbsp;: Relative aux temps d’attente, un système de monoprogrammation est très injuste vis à vis des petits programmes.</span></p><h4 id="2--OS-«nbspmultiprogrammationnbsp»" data-id="2--OS-«nbspmultiprogrammationnbsp»"><a class="anchor hidden-xs" href="#2--OS-«nbspmultiprogrammationnbsp»" title="2--OS-«nbspmultiprogrammationnbsp»"><span class="octicon octicon-link"></span></a><span>2- OS «&nbsp;multiprogrammation&nbsp;»</span></h4><p><span>Un OS est dit de " </span><strong><span>multiprogrammation</span></strong><span> " lorsque </span><strong><span>plusieurs utilisateurs</span></strong><span> peuvent être présents en </span><strong><span>" même temps "</span></strong><span> dans la machine et se </span><strong><span>partagent les ressources de la machine pendant tout leur temps d’exécution</span></strong><span>.</span></p><p><span>La multiprogrammation est la capacité d’un système à exécuter à la suite plusieurs activités sans l’intervention de l’utilisateur. Elle apparut dans les années 1960.</span></p><p><img src="https://i.imgur.com/pyttQke.png" alt="" loading="lazy"></p><p><em><span>En reprenant l’exemple, P1, P2, P3, P4, sont exécutés cycliquement par l’OS qui leur alloue les ressources nécessaires (disque, mémoire, fichier,…) pendant leur tranche de temps d’exécution.</span></em></p><p><strong><span>Rmq</span></strong><span>&nbsp;: Relative aux temps d’attente, un système de multiprogrammation rétablit une certaine justice entre petits et gros programmes.</span><br>
+<span>A l’heure actuelle, tous les OS sont issus de la multiprogrammation. Par exemple, elle est apparue dans la famille Windows avec Win98.</span></p><h2 id="2--Les-processus" data-id="2--Les-processus"><a class="anchor hidden-xs" href="#2--Les-processus" title="2--Les-processus"><span class="octicon octicon-link"></span></a><span>2- Les processus</span></h2><h3 id="Exercice" data-id="Exercice"><a class="anchor hidden-xs" href="#Exercice" title="Exercice"><span class="octicon octicon-link"></span></a><span>Exercice</span></h3><p><span>À l’aide de la vidéo ci-dessous (ne regardez que jusqu’à 4 minutes 30), de vos connaissances et de votre moteur de recherche favoris, </span><strong><span>proposez</span></strong><span> une </span><strong><span>définition</span></strong><span> pour les mots suivants&nbsp;:</span></p><p><span class="youtube" data-videoid="bFqud0gcCHM"><iframe frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://www.youtube.com/embed/bFqud0gcCHM"></iframe></span></p><ul>
+<li><strong><span>Exécutable (ou programme)</span></strong><span>:</span></li>
+<li><strong><span>Processus</span></strong><span> :</span></li>
+<li><strong><span>Threads (ou tâche)</span></strong><span> :</span></li>
+<li><strong><span>Exécution parallèle</span></strong><span> :</span></li>
+<li><strong><span>Exécution concurrente</span></strong><span> :</span></li>
+</ul><p><strong><span>Contexte d’exécution d’un programme</span></strong><span> : Lorsqu’un programme qui a été traduit en instructions machines s’exécute, le processeur central lui fournit toutes ses ressources (registres internes, place en mémoire centrale, données, code,…), on appelle cet ensemble de ressources mises à disposition d’un programme “son contexte d’exécution.”.</span></p><h3 id="1--Processus-et-ordonnancement" data-id="1--Processus-et-ordonnancement"><a class="anchor hidden-xs" href="#1--Processus-et-ordonnancement" title="1--Processus-et-ordonnancement"><span class="octicon octicon-link"></span></a><span>1- Processus et ordonnancement</span></h3><p><span>Un </span><strong><span>processus</span></strong><span> est l’image en mémoire centrale d’un programme s’exécutant avec son contexte d’exécution.</span></p><p><span>Un ordinateur possède un ou plusieurs processeurs, qui sont eux-mêmes constitués de plusieurs unités de calcul, les cœurs.&nbsp;</span><br>
+<strong><span>C’est le système d’exploitation qui va donner à un processus</span></strong><span> l’accès à une unité de calcul, cela s’appelle l’</span><strong><span>ordonnancement</span></strong><span>. Les processus ne quitteront cette dernière que si :</span></p><ul>
+<li><span>Le processus s’arrête, lorsqu’il est terminé.</span></li>
+<li><span>Le processus demande à partir, il n’est pas terminé et demandera à revenir plus tard pour poursuivre son exécution. C’est par exemple le cas d’une tâche cyclique.</span></li>
+<li><span>Le processus est en attente. C’est par exemple le cas s’il n’y a pas d’instance (exemplaire) disponible de la ressource demandée par le processus, il est mis en attente pour libérer la place sur l’unité de calcul.</span></li>
+<li><span>Le système choisit d’arrêter le processus. C’est par exemple le cas lors de l’interblocage que nous verrons plus loin.</span></li>
+</ul><h4 id="1--Propriétés" data-id="1--Propriétés"><a class="anchor hidden-xs" href="#1--Propriétés" title="1--Propriétés"><span class="octicon octicon-link"></span></a><span>1- Propriétés</span></h4><p><span>Lorsqu’une unité de calcul est libre, c’est le système d’exploitation qui va déterminer un nouveau processus à affecter à l’unité de calcul. Pour cela il existe plusieurs </span><strong><span>algorithmes d’ordonnancement</span></strong><span> (algorithmes de scheduling) :</span></p><ul>
+<li>
+<p><span>Le </span><strong><span>modèle FIFO ou FCFS (First-Come, Firts-Served)</span></strong><span> : on affecte les processus dans l’ordre de leur apparition dans la file d’attente. </span><strong><span>Premier arrivé/premier servi</span></strong><span>.</span></p>
+<ul>
+<li><strong><span>Avantages</span></strong><span>&nbsp;: Cet algorithme est simple. C’est une simple liste chaînée et l’ordonnancement est équitable.</span></li>
+<li><strong><span>Inconvénients</span></strong><span>&nbsp;: le processus qui utilise davantage de temps est favorisé par rapport à ceux qui font beaucoup d’appels aux entrées/sorties.</span></li>
+</ul>
+</li>
+<li>
+<p><span>Le </span><strong><span>modèle SJF : Shortest Job First</span></strong><span>, on affecte en premier le « </span><strong><span>plus court processus en premier</span></strong><span> » de la file d’attente à l’unité de calcul. Le job le plus court d’abord.</span></p>
+<ul>
+<li><strong><span>Inconvénients</span></strong><span>&nbsp;: si de multiples processus courts arrivent sans cesse, les plus longs ne seront jamais exécutés.</span></li>
+</ul>
+</li>
+<li>
+<p><span>Le </span><strong><span>modèle Round Robin</span></strong><span> : (ou méthode du tourniquet) </span><strong><span>Chaque processus se voit alloué un certain temps d’attente</span></strong><span>, appelé quatum, et à </span><strong><span>tour de rôle</span></strong><span>, chacun d’eux est traité par le processeur. En général, dans les OS multitâches, c’est cet algorithme qui est utilisé, avec un quantum entre 20 ms et 50 ms. Si le processus n’est pas terminé, il repart en fin de liste d’attente.</span></p>
+</li>
+</ul><p><span>Il existe d’autres algorithmes d’ordonnancement, comme par exemple le modèle </span><strong><span>Priorité</span></strong><span>, où chaque processus dispose d’une valeur de priorité et on choisit le processus de plus forte priorité à chaque fois (nous ne détaillerons pas cet algorithme).</span></p><p><span>Afin de savoir si un algorithme est préférable pour un ensemble de processus, nous devons connaître quelques définitions.</span></p><h4 id="2--Définitions" data-id="2--Définitions"><a class="anchor hidden-xs" href="#2--Définitions" title="2--Définitions"><span class="octicon octicon-link"></span></a><span>2- Définitions</span></h4><p><strong><span>Représentation de l’ordonnancement :</span></strong><br>
+<span>Réaliser l’ordonnancement d’une succession de processus c’est compléter un tableau de ce processus :</span></p><p><img src="https://i.imgur.com/TkKC7Up.png" alt="" loading="lazy"><br>
+<span>On détermine aussi le temps d’attente moyen et le temps d’exécution moyen.</span></p><p><span>Pour illustrer les définitions qui suivent nous allons traiter un ordonnancement avec le </span><strong><span>modèle SJF</span></strong><span>.</span></p><p><img src="https://i.imgur.com/Z3wyVrW.png" alt="" loading="lazy"></p><p><span>Le </span><strong><span>schéma d’ordonnancement</span></strong><span> de ces processus sur le modèle SJF est le suivant :</span></p><p><img src="https://i.imgur.com/OnU08AD.png" alt="" loading="lazy"></p><p><em><strong><span>Temps d’arrivée :</span></strong></em><br>
+<span>Le temps d’arrivée d’un processus, ou temps de soumission, correspond au moment où le processus arrive dans la file d’attente.</span></p><p><strong><span>Ici</span></strong><span>&nbsp;: Le temps d’arrivée du processus P5 est 7. Celui de P4 est 6.</span></p><p><em><strong><span>Durée du processus :</span></strong></em><br>
+<span>La durée du processus P, ou durée d’exécution sur le coeur, correspond à la durée en quantum P nécessaire à l’exécution du processus.</span></p><p><span>Ici&nbsp;: La durée du processus P5 est 1. Celui de P4 est 2.</span></p><p><em><strong><span>Temps de terminaison :</span></strong></em><br>
+<span>Le temps de terminaison d’un processus P est la durée écoulée entre le temps 0 et le temps où le processus est terminé P.</span></p><p><img src="https://i.imgur.com/XgqJjCU.png" alt="" loading="lazy"></p><p><em><strong><span>Temps d’exécution ou temps de séjour :</span></strong></em><br>
+<span>Le temps d’exécution du processus P, ou temps de séjour, correspond à la différence du temps d’arrivée de P et du temps de terminaison de P.</span></p><p><img src="https://i.imgur.com/W6Bckpz.png" alt="" loading="lazy"></p><p><em><strong><span>Temps d’attente :</span></strong></em><br>
+<span>Le temps d’attente d’un processus P ou durée d’attente du processus P correspond à la différence entre le temps de séjour (=temps d’exécution) et la durée du processus.</span></p><p><img src="https://i.imgur.com/lHZqlAP.png" alt="" loading="lazy"></p><h4 id="3--Exercices" data-id="3--Exercices"><a class="anchor hidden-xs" href="#3--Exercices" title="3--Exercices"><span class="octicon octicon-link"></span></a><span>3- Exercices</span></h4><p><span>Complétez les schémas suivants :</span></p><p><em><strong><span>Pour le modèle FIFO</span></strong></em><br>
+<img src="https://i.imgur.com/d9EBqyr.png" alt="" loading="lazy"></p><p><em><strong><span>Pour le modèle SJF</span></strong></em><br>
+<img src="https://i.imgur.com/50f4BjN.png" alt="" loading="lazy"></p><p><em><strong><span>Pour le modèle Round Robin</span></strong></em><br>
+<img src="https://i.imgur.com/98ruPau.png" alt="" loading="lazy"></p><p><strong><span>Rmq</span></strong><span>&nbsp;: Actuellement, la </span><strong><span>plupart</span></strong><span> des </span><strong><span>systèmes d’exploitation</span></strong><span> utilisent une </span><strong><span>évolution du modèle priorité</span></strong><span>, reposant sur les principes suivants :</span></p><ul>
+<li><span>chaque processus possède une priorité de base.</span></li>
+<li><span>cette priorité augmente quand le processus est inactif et diminue quand il est actif (le taux de changement dépend de la priorité de base).</span></li>
+<li><span>le système choisit parmi les processus de plus forte priorité.</span></li>
+</ul><p><em><strong><span>Représenter l’ordonnancement des processus ci-dessous à l’aide du modèle FIFO&nbsp;:</span></strong></em></p><p><img src="https://i.imgur.com/SqqkrKT.png" alt="" loading="lazy"></p><p><em><strong><span>Représenter l’ordonnancement des processus ci-dessous à l’aide du modèle SJF&nbsp;:</span></strong></em></p><p><img src="https://i.imgur.com/iUai5GI.png" alt="" loading="lazy"></p><p><em><strong><span>Représenter l’ordonnancement des processus ci-dessous à l’aide du modèle RR&nbsp;:</span></strong></em></p><p><img src="https://i.imgur.com/mEHzW69.png" alt="" loading="lazy"></p><p><em><strong><span>Représenter l’ordonnancement des processus ci-dessous à l’aide du modèle RR&nbsp;:</span></strong></em></p><p><img src="https://i.imgur.com/GHILYxJ.png" alt="" loading="lazy"></p><p><em><strong><span>On considère les processus ci-dessous. Quel algorithme, parmi les trois que l’on a étudié, permet l’exécution la plus rapide.</span></strong></em></p><p><img src="https://i.imgur.com/SUpWL8K.png" alt="" loading="lazy"></p><h2 id="3--Processus-état-et-fonctionnement" data-id="3--Processus-état-et-fonctionnement"><a class="anchor hidden-xs" href="#3--Processus-état-et-fonctionnement" title="3--Processus-état-et-fonctionnement"><span class="octicon octicon-link"></span></a><span>3- Processus: état et fonctionnement</span></h2><p><img src="https://i.imgur.com/3U9xiiv.jpg" alt="" loading="lazy"></p><p><span>Un </span><strong><span>processus</span></strong><span> peut-être dans les états suivants :</span></p><ul>
+<li>
+<p><span>L’</span><strong><span>état nouveau</span></strong><span> (ou création) : chargement des instructions, allocation de mémoires et des ressources (statiquement), il passe directement à l’état prêt. Il existe </span><strong><span>4 événements pour créer un processus</span></strong><span> :</span></p>
+<ul>
+<li><span>L’</span><strong><span>initialisation du système</span></strong><span> : au chargement du système il y a création automatique du processus racine père de tous les processus utilisateurs (id=0)</span></li>
+<li><span>Un processus peut lancer un autre processus, il en devient le parent, l’autre dernier sera désigné comme </span><strong><span>processus fils</span></strong><span>. (Un processus père ne se termine que lorsque tous ses fils sont terminés. On a donc une structure arborescente de processus).</span></li>
+<li><span>Une </span><strong><span>requête</span></strong><span> de l’utilisateur</span></li>
+<li><span>Initiation d’un travail en </span><strong><span>traitement par lot</span></strong><span> (on exécute le même travail sur plusieurs entités à la fois, c’est par exemple très utilisé en photographie où on applique la même action sur plusieurs clichés).</span></li>
+</ul>
+</li>
+</ul><p><strong><span>Rmq</span></strong><span>&nbsp;: Lors de sa création, un numéro unique d’identification est attribué à chaque processus, c’est l’</span><strong><span>identifiant de processus</span></strong><span> ou </span><strong><span>PID</span></strong><span> (Process IDentifier). Grâce à cet identifiant, nous pourrons appliquer différentes commandes sur le processus.</span></p><ul>
+<li>
+<p><span>L’</span><strong><span>état prêt</span></strong><span> : Le processus est prêt à être exécuté. Il est mis en attente jusqu’à ce qu’on lui libère le processeur (dispatch de l’Ordonnanceur), il passera alors à l’état Actif.</span></p>
+</li>
+<li>
+<p><span>L’</span><strong><span>état actif</span></strong><span> (ou élu) : Le </span><strong><span>processus est en cours d’exécution</span></strong><span> par le processeur.</span></p>
+<ul>
+<li><span>Si le processus épuise le temps qui lui est alloué par le SE, il est remis en file d’attente des Prêts.</span></li>
+<li><span>S’il a besoin d’une ressource non disponible (opérations sur les périphériques), il est mis en attente prolongée (Interruption : état bloqué) jusqu’à la libération de la ressource nécessaire.</span></li>
+<li><span>Si le processus atteint son terme (se termine) il passe à l’état terminé.</span></li>
+</ul>
+</li>
+<li>
+<p><span>L’</span><strong><span>état attente</span></strong><span> (ou bloqué) : Le </span><strong><span>processus est en attente d’une ressource pour terminer</span></strong><span>. Dès sa libération il repasse à l’état Prêt.</span></p>
+</li>
+<li>
+<p><span>L’</span><strong><span>état terminé</span></strong><span> : Lors de la </span><strong><span>destruction le processus libère les ressources allouées</span></strong><span>. Il y a quatre causes possibles de la destruction d’un processus :</span></p>
+<ul>
+<li><span>Arrêt normal : cet arrêt est volontaire et intervient lorsque le processus termine sa tâche.</span></li>
+<li><span>Arrêt pour erreur : cet arrêt est volontaire, il fait suite à une erreur pour une instruction illégale</span></li>
+<li><span>Arrêt pour erreur fatale : cet arrêt est involontaire et intervient généralement lorsque les paramètres de l’exécution du processus sont mauvais.</span></li>
+<li><span>Arrêt volontaire par un autre processus.</span></li>
+</ul>
+</li>
+</ul><h3 id="1--Petite-expérience" data-id="1--Petite-expérience"><a class="anchor hidden-xs" href="#1--Petite-expérience" title="1--Petite-expérience"><span class="octicon octicon-link"></span></a><span>1- Petite expérience</span></h3><p><span>Les instructions d’horloges ne sont pas les seuls événements permettant d’interrompre les processus.</span><br>
+<span>Soit le petit programme Python&nbsp;:</span></p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span></span>
+<span></span></div><div class="code">texte = <span class="hljs-built_in">input</span>(<span class="hljs-string">"Donne moi ton nom"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Ton nom en majuscule:"</span>, texte.upper())
+</div></div></code></pre><p><span>Tant que l’utilisateur du programme ne rentre pas son nom, le programme ne peut avancer. Le système d’exploitation (qui gère aussi le matériel, ici le clavier nous intéresse) peut suspendre le processus et le mettre en attente. Le système d’exploitation sait qu’il est inutile de réveiller le processus tant que l’utilisateur n’interagit pas avec le clavier.</span></p><h3 id="2--Programmation-concurrente" data-id="2--Programmation-concurrente"><a class="anchor hidden-xs" href="#2--Programmation-concurrente" title="2--Programmation-concurrente"><span class="octicon octicon-link"></span></a><span>2- Programmation concurrente</span></h3><p><span>Les </span><strong><span>processus s’exécutent de manière concurrente</span></strong><span>&nbsp;: leurs </span><strong><span>exécutions</span></strong><span> sont </span><strong><span>entrelacées</span></strong><span>. De plus, nous </span><strong><span>ne pouvons pas décider</span></strong><span> de l’</span><strong><span>ordre</span></strong><span> dans lequel les </span><strong><span>processus s’exécutent</span></strong><span>. Cet ordre est </span><strong><span>décidé</span></strong><span> par l’</span><strong><span>ordonnanceur</span></strong><span>.</span></p><p><span>Cela offre de </span><strong><span>grands avantages</span></strong><span>, comme la </span><strong><span>possibilité</span></strong><span> d’e</span><strong><span>xécuter un très grand nombre de programmes</span></strong><span> sur une même machine monoprocesseur. Ou encore d’</span><strong><span>optimiser les ressources de la machine</span></strong><span>. Comme vu sur l’exemple précédent, si le processus est en attente d’entrées-sorties, il est mis en pause.</span></p><p><img src="https://i.imgur.com/DUuCnbF.gif" alt="" loading="lazy"></p><p><span>Cependant </span><strong><span>un grand pouvoir implique de grandes responsabilités</span></strong><span>&nbsp;! Lorsque un </span><strong><span>processus</span></strong><span> est </span><strong><span>interrompu</span></strong><span>, il ne s’en «&nbsp;rend pas compte&nbsp;». Si un processus est interrompu, </span><strong><span>il reprend son exécution dans l’état où il s’était arrêté</span></strong><span>.</span></p><p><strong><span>Expérience&nbsp;:</span></strong></p><pre><code class="python hljs"><div class="wrapper"><div class="gutter linenumber"><span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span></div><div class="code"><span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> getpid
+pid = <span class="hljs-built_in">str</span>(getpid())
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">"test.txt"</span>, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> fichier:
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1000</span>):
+        fichier.write(pid + <span class="hljs-string">" : "</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">"\n"</span>)
+        fichier.flush()
+</div></div></code></pre><blockquote>
+<ul>
+<li><span>Enregistrez ce code Python dans un fichier que vous appellerez </span><a href="http://ecritfichier.py" target="_blank" rel="noopener"><span>ecritfichier.py</span></a></li>
+<li><span>Testez ce code, regardez le fichier test.txt alors crée. Que voyez-vous&nbsp;?</span></li>
+<li><span>Lancer trois fois le script en simultané, à l’aide d’un shell Unix et de la commande&nbsp;:</span></li>
+</ul>
+</blockquote><pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span></span></div><div class="code"><span class="hljs-meta">$ </span><span class="language-bash">python3 ecritfichier.py &amp; python3 ecritfichier.py &amp; python3 ecritfichier.py &amp;</span>
+</div></div></code></pre><blockquote>
+<ul>
+<li><span>Que voyez-vous dans le fichier test.txt&nbsp;? Comment l’expliquez vous&nbsp;?</span></li>
+</ul>
+</blockquote><h2 id="4--Interblocage" data-id="4--Interblocage"><a class="anchor hidden-xs" href="#4--Interblocage" title="4--Interblocage"><span class="octicon octicon-link"></span></a><span>4- Interblocage</span></h2><p><strong><span>Certaines ressources</span></strong><span> nécessitent souvent un </span><strong><span>accès exclusif</span></strong><span>. Cet accès exclusif peut-être source de problèmes.</span></p><p><em><span>Si difficultés, demander à réaliser l’activité débranchée.</span></em></p><h3 id="Exemple" data-id="Exemple"><a class="anchor hidden-xs" href="#Exemple" title="Exemple"><span class="octicon octicon-link"></span></a><span>Exemple</span></h3><p><span>Soit deux programmes imaginaires&nbsp;</span><img class="emoji" alt=":+1:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/+1.png"><span> :</span></p><ul>
+<li><strong><span>enregistrer_micro</span></strong><span>&nbsp;: ce programme doit avoir un accès exclusif à la carte son. Il s’arrête après 10 secondes de son.</span></li>
+<li><strong><span>jouer_son</span></strong><span>&nbsp;: ce programme doit avoir un accès exclusif à la carte son. Il joue le contenu qu’il a reçu en argument.</span></li>
+</ul><p><span>Si j’exécute les deux instructions suivantes, </span><strong><span>tout se passe très bien</span></strong><span>&nbsp;: le </span><strong><span>message est enregistré</span></strong><span> (dans message.mp3). Il </span><strong><span>est ensuite lu</span></strong><span> par jouer_son.</span></p><pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span></span>
+<span></span></div><div class="code"><span class="hljs-meta">$ </span><span class="language-bash">enregistrer_micro &gt; message.mp3</span>
+<span class="hljs-meta">$ </span><span class="language-bash"><span class="hljs-built_in">cat</span> message.mp3 | jouer_son</span>
+</div></div></code></pre><p><span>Par contre </span><strong><span>que se passe-t-il</span></strong><span> </span><strong><span>si</span></strong><span> on </span><strong><span>enchaîne</span></strong><span> </span><strong><span>directement</span></strong><span> les </span><strong><span>deux programmes</span></strong><span> à l’aide de cette commande ?</span></p><pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span></span></div><div class="code"><span class="hljs-meta">$ </span><span class="language-bash">enregistrer_micro | jouer_son</span>
+</div></div></code></pre><p><span>Le premier programme ouvre la carte son. Il commence à envoyer des données sur sa sortie standard. Le second programme tente alors d’ouvrir la carte son, qui est bloquée par le premier programme. Le second programme est alors bloqué. Le premier programme ne peut continuer son exécution car personne ne lit son enregistrement.</span></p><p><span>Il y a interblocage&nbsp;! Ou deadlock en anglais.</span></p><p><strong><span>Interblocage</span></strong><span>&nbsp;: Un </span><strong><span>ensemble de processus</span></strong><span> est dans une situation d’interblocage </span><strong><span>si</span></strong><span> chaque </span><strong><span>processus</span></strong><span> de l’ensemble </span><strong><span>attend un événement</span></strong><span> </span><strong><span>qui ne peut être produit que par un autre processus de l’ensemble.</span></strong></p><p><span>L’</span><strong><span>interblocage</span></strong><span> est </span><strong><span>LE danger de la programmation concurrente</span></strong><span>.</span></p><p><span>Il existe </span><strong><span>4 conditions</span></strong><span>, appelées </span><strong><span>Conditions de Coffman</span></strong><span>, qui sont </span><strong><span>nécessaires à l’interblocage</span></strong><span>. (</span><a href="https://fr.wikipedia.org/wiki/Interblocage" target="_blank" rel="noopener"><span>https://fr.wikipedia.org/wiki/Interblocage</span></a><span> )</span></p><h3 id="Conditions-de-Coffman" data-id="Conditions-de-Coffman"><a class="anchor hidden-xs" href="#Conditions-de-Coffman" title="Conditions-de-Coffman"><span class="octicon octicon-link"></span></a><strong><span>Conditions de Coffman</span></strong></h3><ol>
+<li><strong><span>Exclusion mutuelle</span></strong><span>&nbsp;: au moins une ressource du système doit être en accès exclusif.</span></li>
+<li><strong><span>Rétention et attente</span></strong><span>&nbsp;: un processus détient une ressource et demande une autre ressource détenue par un autre processus.</span></li>
+<li><strong><span>Non préemption</span></strong><span>&nbsp;: une ressource ne peut être rendue que par un processus qui la détient.</span></li>
+<li><strong><span>Attente circulaire</span></strong><span>&nbsp;: l’ensemble des processus bloqués P1,…,Pn sont tels que P1 attend une ressource tenue par P2, …, Pn attend une ressource tenue par P1.</span></li>
+</ol><p><strong><span>Exercice</span></strong><span>&nbsp;:</span><br>
+<strong><span>Démontrez rigoureusement</span></strong><span> que</span></p><pre><code class="shell hljs"><div class="wrapper"><div class="gutter linenumber"><span></span></div><div class="code"><span class="hljs-meta">$ </span><span class="language-bash">enregistrer_micro | jouer_son</span>
+</div></div></code></pre><p><strong><span>entraîne un interblocage</span></strong><span> ( à l’aide des conditions de Coffman).</span></p><p><strong><span>Exercice</span></strong><span>&nbsp;:</span><br>
+<span>Problème du carrefour. Démontrez rigoureusement qu’il y a un interblocage.</span></p><p><span>Plus tard&nbsp;: Programmation concurrente en Python</span></p><p><span>Pour aller (beaucoup) plus loin&nbsp;:</span><br>
+<a href="https://asr-lyon1.gitlabpages.inria.fr/prog-concurrente-2018-2019/cm-threads/cm-threads-slides.pdf" target="_blank" rel="noopener"><span>https://asr-lyon1.gitlabpages.inria.fr/prog-concurrente-2018-2019/cm-threads/cm-threads-slides.pdf</span></a></p></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#Gestion-des-processus-et-des-ressources" title="Gestion des processus et des ressources">Gestion des processus et des ressources</a><ul class="nav">
+<li><a href="#1--Les-Systèmes-d’exploitation-ou-Operating-System" title="1- Les Systèmes d’exploitation (ou Operating System)">1- Les Systèmes d’exploitation (ou Operating System)</a><ul class="nav">
+<li><a href="#1--Définition" title="1- Définition">1- Définition</a></li>
+<li><a href="#2--Principaux-types-de-systèmes-d’exploitation" title="2- Principaux types de systèmes d’exploitation">2- Principaux types de systèmes d’exploitation</a></li>
+</ul>
+</li>
+<li><a href="#2--Les-processus" title="2- Les processus">2- Les processus</a><ul class="nav">
+<li><a href="#Exercice" title="Exercice">Exercice</a></li>
+<li><a href="#1--Processus-et-ordonnancement" title="1- Processus et ordonnancement">1- Processus et ordonnancement</a></li>
+</ul>
+</li>
+<li><a href="#3--Processus-état-et-fonctionnement" title="3- Processus: état et fonctionnement">3- Processus: état et fonctionnement</a><ul class="nav">
+<li><a href="#1--Petite-expérience" title="1- Petite expérience">1- Petite expérience</a></li>
+<li><a href="#2--Programmation-concurrente" title="2- Programmation concurrente">2- Programmation concurrente</a></li>
+</ul>
+</li>
+<li><a href="#4--Interblocage" title="4- Interblocage">4- Interblocage</a><ul class="nav">
+<li><a href="#Exemple" title="Exemple">Exemple</a></li>
+<li><a href="#Conditions-de-Coffman" title="Conditions de Coffman">Conditions de Coffman</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li><a href="#Gestion-des-processus-et-des-ressources" title="Gestion des processus et des ressources">Gestion des processus et des ressources</a><ul class="nav">
+<li><a href="#1--Les-Systèmes-d’exploitation-ou-Operating-System" title="1- Les Systèmes d’exploitation (ou Operating System)">1- Les Systèmes d’exploitation (ou Operating System)</a><ul class="nav">
+<li><a href="#1--Définition" title="1- Définition">1- Définition</a></li>
+<li><a href="#2--Principaux-types-de-systèmes-d’exploitation" title="2- Principaux types de systèmes d’exploitation">2- Principaux types de systèmes d’exploitation</a></li>
+</ul>
+</li>
+<li><a href="#2--Les-processus" title="2- Les processus">2- Les processus</a><ul class="nav">
+<li><a href="#Exercice" title="Exercice">Exercice</a></li>
+<li><a href="#1--Processus-et-ordonnancement" title="1- Processus et ordonnancement">1- Processus et ordonnancement</a></li>
+</ul>
+</li>
+<li><a href="#3--Processus-état-et-fonctionnement" title="3- Processus: état et fonctionnement">3- Processus: état et fonctionnement</a><ul class="nav">
+<li><a href="#1--Petite-expérience" title="1- Petite expérience">1- Petite expérience</a></li>
+<li><a href="#2--Programmation-concurrente" title="2- Programmation concurrente">2- Programmation concurrente</a></li>
+</ul>
+</li>
+<li><a href="#4--Interblocage" title="4- Interblocage">4- Interblocage</a><ul class="nav">
+<li><a href="#Exemple" title="Exemple">Exemple</a></li>
+<li><a href="#Conditions-de-Coffman" title="Conditions de Coffman">Conditions de Coffman</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
